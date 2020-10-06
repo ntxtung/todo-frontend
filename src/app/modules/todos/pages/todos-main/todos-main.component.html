@@ -1,0 +1,10 @@
+<div class="todo-board">
+  <div class="lists">
+    <div
+      app-card-list
+      class="list"
+      *ngFor="let cardList of cardLists"
+      [cardList]="cardList"
+    ></div>
+  </div>
+</div>

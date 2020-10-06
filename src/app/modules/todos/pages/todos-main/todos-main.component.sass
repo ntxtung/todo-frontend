@@ -1,0 +1,39 @@
+// Layout
+$scrollbar-thickness: 17px
+$list-width: 300px
+$gap: 10px
+// Colors
+$board-bg-color: #0079bf
+
+.todo-board
+  height: 100vh
+
+  display: grid
+  grid-template-rows: 1fr
+  grid-template-columns: 100%
+
+  background-color: $board-bg-color
+  color: #eee
+
+  padding-top: 10px
+
+
+.lists
+  display: flex
+  overflow-x: auto
+  //width: 100%; // This is needed for FF < 54
+  > *
+    flex: 0 0 auto // 'rigid' lists
+    margin-left: $gap
+
+  &::after
+    content: ''
+    flex: 0 0 $gap
+
+
+
+.list
+  width: $list-width
+  height: calc(100% - #{$gap} - #{$scrollbar-thickness})
+
+
