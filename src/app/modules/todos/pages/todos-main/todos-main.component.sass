@@ -4,6 +4,7 @@ $list-width: 300px
 $gap: 10px
 // Colors
 $board-bg-color: #0079bf
+$list-bg-color: #e2e4e6
 
 .todo-board
   height: 100vh
@@ -11,9 +12,13 @@ $board-bg-color: #0079bf
   display: grid
   grid-template-rows: 1fr
   grid-template-columns: 100%
-
-  background-color: $board-bg-color
-  color: #eee
+  background-image: url("/assets/background.jpg")
+  background-size: auto
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  //background-color: $board-bg-color
+  //color: #eee
 
   padding-top: 10px
 
@@ -30,10 +35,20 @@ $board-bg-color: #0079bf
     content: ''
     flex: 0 0 $gap
 
-
-
 .list
   width: $list-width
   height: calc(100% - #{$gap} - #{$scrollbar-thickness})
 
+.button
+  border: none
+  border-radius: 7px
+  width: $list-width
+  height: 4vh
 
+input
+  background-color: $list-bg-color
+  padding-left: $gap
+  border: none
+  border-radius: 7px
+  width: $list-width
+  height: 4vh

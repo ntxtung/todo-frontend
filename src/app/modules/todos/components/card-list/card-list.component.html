@@ -1,10 +1,46 @@
-<header>{{cardList.name}}</header>
+<!--<header>{{cardList.name}}</header>-->
+<header (click)="onTitleClicked($event)">
+  <div *ngIf="isTitleEdit===true then thenBlockTitle else elseBlockTitle "></div>
+  <ng-template #thenBlockTitle>
+    <input
+      autofocus
+      [(ngModel)]="cardList.name"
+      class="form-control"
+      placeholder="{{this.cardList.name}}"
+      (blur)="onTitleBlur()"
+      (focus)="onTitleFocus()"
+      (keyup.enter)="onTitleEnter()"
+      (keyup.escape)="onTitleEscape()"
+    />
+  </ng-template>
+  <ng-template #elseBlockTitle>
+    <div>{{cardList.name}}</div>
+  </ng-template>
+</header>
 <ul>
-  <li>Lorem ipsum dolor sit amet</li>
-  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-  <li>Lorem ipsum dolor sit amet</li>
-  <li>Lorem ipsum dolor sit amet</li>
-  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet</li>
-  <li>Lorem ipsum dolor sit amet</li>
+  <li
+    app-card
+    *ngFor="let card of cards" [card]="card"
+    (click)="onCardSelected(card)"
+    data-toggle="modal"
+    data-target="#cardDetailModal"
+  ></li>
 </ul>
-<footer>Add a card...</footer>
+
+<footer (click)="onNewCardClicked()">
+  <div *ngIf="isNewCardTyping===true then thenBlockNewCard else elseBlockNewCard "></div>
+  <ng-template #thenBlockNewCard>
+    <input
+      autofocus
+      [(ngModel)]="newCard.name"
+      class="form-control"
+      placeholder="Enter new card title"
+      (keyup.enter)="onNewCardEnter()"
+      (keyup.escape)="onNewCardEscape()"
+    />
+  </ng-template>
+  <ng-template #elseBlockNewCard>
+    Add a card....
+  </ng-template>
+</footer>
+

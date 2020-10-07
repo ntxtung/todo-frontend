@@ -8,10 +8,9 @@ $card-border-radius: 3px
 // Colors
 $list-bg-color: #e2e4e6
 
-*
+*:not(.todos-modal)
   background-color: $list-bg-color
   color: #333
-
   padding: 0 $gap
 
 header
@@ -20,12 +19,22 @@ header
   font-weight: bold
   border-top-left-radius: $list-border-radius
   border-top-right-radius: $list-border-radius
+  padding-left: calc(#{$gap} + 5px)
+  > *
+    width: 100%
+    display: inline-block
+    overflow: hidden !important
+    text-overflow: ellipsis
+  input
+    width: 100%
 
 footer
   line-height: $list-footer-height
   border-bottom-left-radius: $list-border-radius
   border-bottom-right-radius: $list-border-radius
   color: #888
+  padding-left: calc(#{$gap} + 5px)
+  padding-bottom: $gap
 
 ul
   list-style: none
@@ -37,12 +46,16 @@ ul
   li
     background-color: #fff
     padding: $gap
-
-    &:not(:last-child)
-      margin-bottom: $gap
-
+    user-select: none
     border-radius: $card-border-radius
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1)
+    margin-bottom: $gap
+
+    &:hover
+      background-color: #f4f5f7
+      box-shadow: 2px 2px 0 1px rgba(0, 0, 0, 0.2)
+      transition: all 200ms ease-out
+      cursor: pointer
 
     img
       display: block

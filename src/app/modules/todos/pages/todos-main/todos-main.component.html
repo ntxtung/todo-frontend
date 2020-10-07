@@ -1,10 +1,28 @@
 <div class="todo-board">
   <div class="lists">
-    <div
-      app-card-list
+    <app-card-list
       class="list"
       *ngFor="let cardList of cardLists"
       [cardList]="cardList"
-    ></div>
+    ></app-card-list>
+
+    <div *ngIf="isNewCardListTyping===true then thenNewCardListBlock else elseNewCardListBlock"></div>
+    <ng-template #thenNewCardListBlock>
+      <input
+        [(ngModel)]="newCardList.name"
+        placeholder="Enter list title"
+        (keyup.enter)="onNewCardListEnter()"
+        (keyup.escape)="onNewCardListEscape()"
+      />
+    </ng-template>
+    <ng-template #elseNewCardListBlock>
+      <button class="button" (click)="onNewCardClicked()">Add new list</button>
+    </ng-template>
   </div>
 </div>
+<app-card-detail
+  class="todos-modal"
+>
+</app-card-detail>
+
+
