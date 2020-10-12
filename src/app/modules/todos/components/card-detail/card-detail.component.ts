@@ -41,6 +41,7 @@ export class CardDetailComponent implements OnInit {
 
   onCancel(): void {
     console.log(this.card);
+    this.isTitleEdit = false;
   }
 
   onBlur(): void {
