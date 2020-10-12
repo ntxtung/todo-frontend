@@ -7,5 +7,7 @@ export class Card {
 
   constructor(cardListId: number) {
     this.cardListId = cardListId;
+    this.name = '';
+    this.description = '';
   }
 }

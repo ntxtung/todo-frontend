@@ -3,5 +3,6 @@ export class CardList {
   name: string;
 
   constructor() {
+    this.name = '';
   }
 }

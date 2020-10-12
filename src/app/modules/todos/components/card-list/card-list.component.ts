@@ -5,6 +5,7 @@ import {Card} from '../../../../shared/models/card.model';
 import {CardListService} from '../../../../core/http/card-list.service';
 import {selectCard} from '../../../../shared/actions/card.actions';
 import {Store} from '@ngrx/store';
+import {ReducerState} from '../../../../shared/reducers/reducer';
 
 @Component({
   selector: 'app-card-list',
@@ -24,21 +25,21 @@ export class CardListComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private cardListService: CardListService,
-    private store: Store<{ cardReducer: any }>
+    private store: Store<ReducerState>
   ) { }
 
   ngOnInit(): void {
+    this.store.select('cardReducer')
+      .subscribe(cardStore => {
+        this.cards = [...cardStore.cards.filter(
+          card => card.cardListId === this.cardList.id
+        )];
+      });
     this.refreshList();
   }
 
   refreshList(): void {
-    this.fetchCards();
     this.initNewCardObject();
-  }
-
-  fetchCards(): void {
-    this.cardService.getCardsByListId(this.cardList.id)
-      .subscribe(cards => this.cards = cards);
   }
 
   initNewCardObject(): void {
@@ -91,15 +92,17 @@ export class CardListComponent implements OnInit {
   }
 
   newCardSubmit(): void {
-    let returnCard;
-    this.cardService.createCard(this.newCard)
-      .subscribe(card => returnCard = card);
+    if (this.newCard.name.trim().length) {
+      let returnCard;
+      this.cardService.createCard(this.newCard)
+        .subscribe(card => returnCard = card);
 
-    if (returnCard) {
-      this.isNewCardTyping = false;
-      this.refreshList();
-    } else {
-      console.log('Error');
+      if (returnCard) {
+        this.isNewCardTyping = false;
+        this.refreshList();
+      } else {
+        console.log('Error');
+      }
     }
   }
 

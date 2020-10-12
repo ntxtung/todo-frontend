@@ -48,14 +48,16 @@ export class TodosMainComponent implements OnInit {
   }
 
   newCardListSubmit(): void {
-    let returnedCardList = null;
-    this.cardListService.createNewCardList(this.newCardList)
-      .subscribe(cardList => returnedCardList = cardList);
-    if (returnedCardList) {
-      this.isNewCardListTyping = false;
-      this.refreshAll();
-    } else {
-      console.log('ERROR');
+    if (this.newCardList.name.trim().length) {
+      let returnedCardList = null;
+      this.cardListService.createNewCardList(this.newCardList)
+        .subscribe(cardList => returnedCardList = cardList);
+      if (returnedCardList) {
+        this.isNewCardListTyping = false;
+        this.refreshAll();
+      } else {
+        console.log('ERROR');
+      }
     }
   }
 

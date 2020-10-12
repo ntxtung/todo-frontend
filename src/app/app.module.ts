@@ -13,6 +13,7 @@ import { cardReducer } from './shared/reducers/card.reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import {environment} from '../environments/environment';
+import {ReducerState} from './shared/reducers/reducer';
 
 @NgModule({
   declarations: [
