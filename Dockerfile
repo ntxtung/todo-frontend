@@ -9,4 +9,4 @@ RUN yarn build
 
 EXPOSE 5000
 
-CMD ["serve", "./dist/todo-frontend/"]
+CMD ["./node_modules/.bin/serve", "./dist/todo-frontend/"]
