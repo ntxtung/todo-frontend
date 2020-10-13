@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {cardReducer, CardReducerState} from '../../../../shared/reducers/card.reducer';
 import {selectCard} from '../../../../shared/actions/card.actions';
 import {ReducerState} from '../../../../shared/reducers/reducer';
-import {CardService} from '../../../../core/http/card.service';
+import {CardService} from '../../../../core/services/card.service';
 import * as $ from 'jquery';
 
 @Component({

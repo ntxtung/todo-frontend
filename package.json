@@ -24,6 +24,7 @@
     "@types/jquery": "^3.5.2",
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
+    "ngrx-store-localstorage": "^10.1.0",
     "rxjs": "~6.6.0",
     "serve": "^11.3.2",
     "tslib": "^2.0.0",

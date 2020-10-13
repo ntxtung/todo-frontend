@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {CardListService} from '../../../../core/http/card-list.service';
+import {CardListService} from '../../../../core/services/card-list.service';
 import {CardList} from '../../../../shared/models/card-list.model';
+import {ReducerState} from '../../../../shared/reducers/reducer';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-todos-main',
@@ -14,16 +16,17 @@ export class TodosMainComponent implements OnInit {
   isNewCardListTyping = false;
 
   constructor(
-    private cardListService: CardListService
-  ) { }
+    private cardListService: CardListService,
+    private store: Store<ReducerState>
+  ) {
+    // this.store.select('cardListReducer')
+    //   .subscribe(cardListStore => this.cardLists = cardListStore.cardLists);
+    this.cardListService.getAllCardLists()
+      .subscribe(cardLists => this.cardLists = cardLists);
+  }
 
   ngOnInit(): void {
     this.refreshAll();
-  }
-
-  fetchCardLists(): void {
-    this.cardListService.getAllCardLists()
-      .subscribe(cardLists => this.cardLists = cardLists);
   }
 
   initNewCardList(): void {
@@ -31,7 +34,6 @@ export class TodosMainComponent implements OnInit {
   }
 
   refreshAll(): void {
-    this.fetchCardLists();
     this.initNewCardList();
   }
 

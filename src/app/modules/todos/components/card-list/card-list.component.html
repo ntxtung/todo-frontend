@@ -4,9 +4,9 @@
   <ng-template #thenBlockTitle>
     <input
       autofocus
-      [(ngModel)]="cardList.name"
+      [(ngModel)]="clonedCardList.name"
       class="form-control"
-      placeholder="{{this.cardList.name}}"
+      placeholder="{{this.clonedCardList.name}}"
       (blur)="onTitleBlur()"
       (focus)="onTitleFocus()"
       (keyup.enter)="onTitleEnter()"
@@ -20,6 +20,7 @@
 <ul>
   <li
     app-card
+    appShadowOnHover
     *ngFor="let card of cards" [card]="card"
     (click)="onCardSelected(card)"
     data-toggle="modal"

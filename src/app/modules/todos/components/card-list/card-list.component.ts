@@ -1,8 +1,8 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {CardList} from '../../../../shared/models/card-list.model';
-import {CardService} from '../../../../core/http/card.service';
+import {CardService} from '../../../../core/services/card.service';
 import {Card} from '../../../../shared/models/card.model';
-import {CardListService} from '../../../../core/http/card-list.service';
+import {CardListService} from '../../../../core/services/card-list.service';
 import {selectCard} from '../../../../shared/actions/card.actions';
 import {Store} from '@ngrx/store';
 import {ReducerState} from '../../../../shared/reducers/reducer';
@@ -15,6 +15,7 @@ import {ReducerState} from '../../../../shared/reducers/reducer';
 })
 export class CardListComponent implements OnInit {
   @Input() cardList: CardList;
+  clonedCardList: CardList;
   savedTitle: string;
   cards: Card[];
   newCard: Card;
@@ -29,12 +30,15 @@ export class CardListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.select('cardReducer')
-      .subscribe(cardStore => {
-        this.cards = [...cardStore.cards.filter(
-          card => card.cardListId === this.cardList.id
-        )];
-      });
+    this.cardService.getCardsByListId(this.cardList.id)
+      .subscribe(cards => this.cards = cards);
+    // this.store.select('cardReducer')
+    //   .subscribe(cardStore => {
+    //     this.cards = [...cardStore.cards.filter(
+    //       card => card.cardListId === this.cardList.id
+    //     )];
+    //   });
+    this.clonedCardList = {...this.cardList};
     this.refreshList();
   }
 
@@ -68,10 +72,11 @@ export class CardListComponent implements OnInit {
 
   titleSubmit(): void {
     this.isTitleEdit = false;
-    let newCardList = null;
-    this.cardListService.updateCardListTitle(this.cardList.id, this.cardList.name)
-                          .subscribe(cardList => newCardList = cardList);
-    console.log(newCardList);
+    let returnedCardList = null;
+    console.log('cardList: ', this.clonedCardList);
+    this.cardListService.updateCardList(this.clonedCardList)
+                          .subscribe(cardList => returnedCardList = cardList);
+    console.log(returnedCardList);
   }
 
   titleEditCancel(): void {

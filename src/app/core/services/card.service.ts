@@ -4,6 +4,7 @@ import {Card} from '../../shared/models/card.model';
 import {Store} from '@ngrx/store';
 import {ReducerState} from '../../shared/reducers/reducer';
 import {addNewCard, updateCard, deleteCard} from '../../shared/actions/card.actions';
+import {filter, map, mergeAll} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,10 @@ export class CardService {
   }
 
   getCardsByListId(id: number): Observable<Card[]> {
-    return of(this.cards.filter( card => card.cardListId === id));
+    return this.store.select('cardReducer', 'cards')
+      .pipe(
+        map(cards => cards.filter(card => card.cardListId === id))
+      );
   }
 
   createCard(newCard: Card): Observable<Card> {
