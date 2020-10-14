@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardDetailComponent } from './card-detail.component';
+import {StoreModule} from '@ngrx/store';
+import {cardReducer} from '../../../../shared/reducers/card.reducer';
+import {cardListReducer} from '../../../../shared/reducers/card-list.reducer';
 
 describe('CardDetailComponent', () => {
   let component: CardDetailComponent;
@@ -8,7 +11,13 @@ describe('CardDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardDetailComponent ]
+      declarations: [ CardDetailComponent ],
+      imports: [
+        StoreModule.forRoot({
+          cardReducer,
+          cardListReducer
+        })
+      ]
     })
     .compileComponents();
   });

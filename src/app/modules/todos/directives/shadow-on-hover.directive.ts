@@ -11,7 +11,6 @@ export class ShadowOnHoverDirective {
 
   @HostListener('mouseenter', ['$event'])
   onMouseEnterEffect(): void {
-    console.log('Mouse Enter');
     this.el.nativeElement.style.backgroundColor = '#f4f5f7';
     this.el.nativeElement.style.cursor = 'pointer';
     this.el.nativeElement.style.boxShadow = '2px 2px 0 1px rgba(0, 0, 0, 0.2)';

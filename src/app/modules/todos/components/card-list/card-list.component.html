@@ -21,18 +21,21 @@
   <li
     app-card
     appShadowOnHover
-    *ngFor="let card of cards" [card]="card"
+    *ngFor="let card of cards;trackBy: cardIdentify" [card]="card"
     (click)="onCardSelected(card)"
     data-toggle="modal"
     data-target="#cardDetailModal"
   ></li>
 </ul>
 
-<footer (click)="onNewCardClicked()">
+<footer
+  [id]="'createCardText' + cardList.id"
+  (click)="onNewCardClicked()">
   <div *ngIf="isNewCardTyping===true then thenBlockNewCard else elseBlockNewCard "></div>
   <ng-template #thenBlockNewCard>
     <input
       autofocus
+      [id]="'createCardInput' + cardList.id"
       [(ngModel)]="newCard.name"
       class="form-control"
       placeholder="Enter new card title"

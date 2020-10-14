@@ -30,7 +30,7 @@ export class CardListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cardService.getCardsByListId(this.cardList.id)
+    this.cardService.getObservableCardsByListId(this.cardList.id)
       .subscribe(cards => this.cards = cards);
     // this.store.select('cardReducer')
     //   .subscribe(cardStore => {
@@ -118,6 +118,10 @@ export class CardListComponent implements OnInit {
 
   onCardSelected(card: Card): void {
     this.store.dispatch(selectCard(card));
+  }
+
+  cardIdentify(index: number, item: Card): any {
+    return item.id;
   }
 
 }

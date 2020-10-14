@@ -2,5 +2,5 @@
   class="list-item"
   (click)="onClick($event)"
 >
-  {{card.name}}
+  {{card ? card.name : ''}}
 </div>

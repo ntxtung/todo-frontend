@@ -66,4 +66,8 @@ export class TodosMainComponent implements OnInit {
   newCardListCancel(): void {
     this.isNewCardListTyping = false;
   }
+
+  cardListIdentify(index: number, item: CardList): any {
+    return item.id;
+  }
 }

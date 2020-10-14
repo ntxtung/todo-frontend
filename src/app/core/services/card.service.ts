@@ -21,7 +21,7 @@ export class CardService {
       });
   }
 
-  getCardsByListId(id: number): Observable<Card[]> {
+  getObservableCardsByListId(id: number): Observable<Card[]> {
     return this.store.select('cardReducer', 'cards')
       .pipe(
         map(cards => cards.filter(card => card.cardListId === id))

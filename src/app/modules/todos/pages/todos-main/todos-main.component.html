@@ -2,7 +2,7 @@
   <div class="lists">
     <app-card-list
       class="list"
-      *ngFor="let cardList of cardLists"
+      *ngFor="let cardList of cardLists; trackBy: cardListIdentify"
       [cardList]="cardList"
     ></app-card-list>
 
@@ -13,10 +13,14 @@
         placeholder="Enter list title"
         (keyup.enter)="onNewCardListEnter()"
         (keyup.escape)="onNewCardListEscape()"
+        id="create-card-list-input"
       />
     </ng-template>
     <ng-template #elseNewCardListBlock>
-      <button class="button" (click)="onNewCardClicked()">Add new list</button>
+      <button
+        class="button"
+        id="create-card-list-button"
+        (click)="onNewCardClicked()">Add new list</button>
     </ng-template>
   </div>
 </div>
