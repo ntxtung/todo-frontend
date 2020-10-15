@@ -35,7 +35,6 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class CardListComponent implements OnInit {
   @Input() cardList: CardList;
   clonedCardList: CardList;
-  savedTitle: string;
   cards: Card[];
   newCard: Card;
 
@@ -70,7 +69,6 @@ export class CardListComponent implements OnInit {
   }
 
   onTitleClicked(): void {
-    this.savedTitle = this.cardList.name;
     this.isTitleEdit = true;
   }
 
@@ -100,7 +98,6 @@ export class CardListComponent implements OnInit {
 
   titleEditCancel(): void {
     this.isTitleEdit = false;
-    this.cardList.name = this.savedTitle;
   }
 
   onNewCardClicked(): void {
