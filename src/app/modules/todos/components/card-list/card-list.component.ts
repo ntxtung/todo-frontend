@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CardList} from '../../../../shared/models/card-list.model';
 import {CardService} from '../../../../core/services/card.service';
 import {Card} from '../../../../shared/models/card.model';
@@ -6,12 +6,31 @@ import {CardListService} from '../../../../core/services/card-list.service';
 import {selectCard} from '../../../../shared/actions/card.actions';
 import {Store} from '@ngrx/store';
 import {ReducerState} from '../../../../shared/reducers/reducer';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.sass'],
-  // encapsulation: ViewEncapsulation.None
+  animations: [
+    trigger('flyInOut', [
+      state('in',
+        style({
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('void => *', [
+        style({ transform: 'translateX(-120%)' }),
+        animate(200)
+      ]),
+      transition('* => void', [
+        animate(200, style({
+          transform: 'translateX(120%)',
+          opacity: 0
+        }))
+      ])
+    ])
+  ]
 })
 export class CardListComponent implements OnInit {
   @Input() cardList: CardList;
@@ -50,7 +69,7 @@ export class CardListComponent implements OnInit {
     this.newCard = new Card(this.cardList.id);
   }
 
-  onTitleClicked($event: MouseEvent): void {
+  onTitleClicked(): void {
     this.savedTitle = this.cardList.name;
     this.isTitleEdit = true;
   }
@@ -109,6 +128,12 @@ export class CardListComponent implements OnInit {
         console.log('Error');
       }
     }
+  }
+
+  onDeleteCardList(): void {
+    let returnedCardList;
+    this.cardListService.removeCardList(this.cardList)
+      .subscribe(cardList => returnedCardList = cardList);
   }
 
   newCardCancel(): void {

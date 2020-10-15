@@ -7,7 +7,7 @@ export class ShadowOnHoverDirective {
 
   constructor(
     private el: ElementRef
-  ) { }
+  ) {}
 
   @HostListener('mouseenter', ['$event'])
   onMouseEnterEffect(): void {

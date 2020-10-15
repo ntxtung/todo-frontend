@@ -3,7 +3,8 @@ import {Observable, of} from 'rxjs';
 import {CardList} from '../../shared/models/card-list.model';
 import {ReducerState} from '../../shared/reducers/reducer';
 import {Store} from '@ngrx/store';
-import {addNewCardList, updateCardList} from '../../shared/actions/card-list.actions';
+import {addNewCardList, deleteCardList, updateCardList} from '../../shared/actions/card-list.actions';
+import {Card} from '../../shared/models/card.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +35,10 @@ export class CardListService {
   }
   updateCardList(cardList: CardList): Observable<CardList> {
     this.store.dispatch(updateCardList(cardList));
+    return of(cardList);
+  }
+  removeCardList(cardList: CardList): Observable<CardList> {
+    this.store.dispatch(deleteCardList(cardList));
     return of(cardList);
   }
 }

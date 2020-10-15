@@ -3,11 +3,35 @@ import {CardListService} from '../../../../core/services/card-list.service';
 import {CardList} from '../../../../shared/models/card-list.model';
 import {ReducerState} from '../../../../shared/reducers/reducer';
 import {Store} from '@ngrx/store';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-todos-main',
   templateUrl: './todos-main.component.html',
-  styleUrls: ['./todos-main.component.sass']
+  styleUrls: ['./todos-main.component.sass'],
+  animations: [
+    trigger('flyInOut', [
+      state('in',
+        style({
+          transform: 'translateX(0)',
+          opacity: 1
+        })
+      ),
+      transition('void => *', [
+        style({
+          transform: 'translateX(70%)',
+          opacity: 0
+        }),
+        animate(200 )
+      ]),
+      transition('* => void', [
+        animate(200, style({
+          transform: 'translateX(120%)',
+          opacity: 0
+        }))
+      ])
+    ])
+  ]
 })
 export class TodosMainComponent implements OnInit {
   cardLists: CardList[];

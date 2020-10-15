@@ -2,6 +2,7 @@
   <div class="lists">
     <app-card-list
       class="list"
+      [@flyInOut]
       *ngFor="let cardList of cardLists; trackBy: cardListIdentify"
       [cardList]="cardList"
     ></app-card-list>

@@ -17,6 +17,7 @@ import { ShadowOnHoverDirective } from './modules/todos/directives/shadow-on-hov
 import {cardListReducer} from './shared/reducers/card-list.reducer';
 import {localStorageSync} from 'ngrx-store-localstorage';
 import {ReducerState} from './shared/reducers/reducer';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({keys: ['cardListReducer', 'cardReducer'], rehydrate: true})(reducer);
@@ -34,6 +35,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot({
       cardReducer,
       cardListReducer
