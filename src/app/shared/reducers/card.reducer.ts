@@ -1,4 +1,4 @@
-import { Card } from '../models/card.model';
+import {Card} from '../models/card.model';
 import {selectCard, addNewCard, updateCard, deleteCard} from '../actions/card.actions';
 import {createReducer, on} from '@ngrx/store';
 import {deleteCardList} from '../actions/card-list.actions';
@@ -43,7 +43,7 @@ const _cardReducer = createReducer(
       card => card.id !== payload.id
     );
     return {
-      ... state,
+      ...state,
       cards: afterDelete
     };
   }),
@@ -53,7 +53,7 @@ const _cardReducer = createReducer(
       card => card.cardListId !== payload.id
     );
     return {
-      ... state,
+      ...state,
       cards: afterDelete
     };
   })

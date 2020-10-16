@@ -1,22 +1,25 @@
 export interface CardInterface {
-  id: number;
-  name: string;
-  description: string;
+  id?: number;
+  name?: string;
+  description?: string;
   cardListId: number;
-  dueDate: Date;
+  dueDate?: Date;
+  isChecked?: boolean;
 }
+
 export class Card {
   id: number;
   name: string;
   description: string;
   cardListId: number;
   dueDate: Date;
+  isChecked: boolean;
 
-  constructor(cardListId: number) {
-    this.name = '';
-    this.cardListId = cardListId;
-    // this.name = obj && obj.name || '';
-    // this.cardListId = obj && obj.cardListId || -1;
-    // this.description = obj && obj.description || '';
+  constructor(cardObj?: CardInterface) {
+    this.name = cardObj && cardObj.name || '';
+    this.cardListId = cardObj && cardObj.cardListId || -1;
+    this.description = cardObj && cardObj.description || '';
+    this.dueDate = cardObj && cardObj.dueDate || new Date();
+    this.isChecked = cardObj && cardObj.isChecked || false;
   }
 }

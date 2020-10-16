@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {TodosMainComponent} from './modules/todos/pages/todos-main/todos-main.component';
 import {StoreModule} from '@ngrx/store';

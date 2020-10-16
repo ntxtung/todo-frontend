@@ -65,7 +65,10 @@ export class CardListComponent implements OnInit {
   }
 
   initNewCardObject(): void {
-    this.newCard = new Card(this.cardList.id);
+    // this.newCard = new Card(this.cardList.id);
+    this.newCard = new Card({
+      cardListId: this.cardList.id
+    });
   }
 
   onTitleClicked(): void {
