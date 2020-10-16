@@ -42,10 +42,10 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     }, {metaReducers}),
     FormsModule,
     AppRoutingModule,
-    StoreDevtoolsModule.instrument({
+    // Redux DevTool config
+    !environment.production ? StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
-    }),
+    }) : [],
   ],
   providers: [
     Title

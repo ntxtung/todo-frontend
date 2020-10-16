@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  title: 'Todos'
+  title: 'Todos - Dev'
 };
 
 /*
