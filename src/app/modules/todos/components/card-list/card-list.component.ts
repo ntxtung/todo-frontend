@@ -28,8 +28,7 @@ export class CardListComponent implements OnInit, OnDestroy {
 
   constructor(
     private cardService: CardService,
-    private cardListService: CardListService,
-    private store: Store<ReducerState>
+    private cardListService: CardListService
   ) {
   }
 
@@ -124,10 +123,6 @@ export class CardListComponent implements OnInit, OnDestroy {
   newCardCancel(): void {
     this.isNewCardTyping = false;
     // this.initNewCardObject();
-  }
-
-  onCardSelected(card: Card): void {
-    this.store.dispatch(selectCard(card));
   }
 
   cardIdentify(index: number, item: Card): any {

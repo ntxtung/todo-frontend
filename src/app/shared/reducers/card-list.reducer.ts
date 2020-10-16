@@ -17,7 +17,7 @@ const _cardListReducer = createReducer(
   on(addNewCardList, (state, payload) => {
     return {
       ...state,
-      cardLists: [...state.cardLists, payload]
+      cardLists: [...state.cardLists, new CardList(payload)]
     };
   }),
   on(updateCardList, (state, payload) => {
@@ -25,7 +25,7 @@ const _cardListReducer = createReducer(
     const cardIndex = newCardLists.findIndex((
       cardList => cardList.id === payload.id
     ));
-    newCardLists[cardIndex] = payload;
+    newCardLists[cardIndex] = new CardList(payload);
     return {
       ...state,
       cardLists: newCardLists

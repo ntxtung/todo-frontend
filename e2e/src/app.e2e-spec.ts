@@ -44,23 +44,24 @@ describe('Todos - CardList & Card', () => {
     page = new AppPage();
   });
 
-  it(`should contains 100 cards / 10 cardLists without crash`, async () => {
+  it(`should able to create cardList and card`, async () => {
     const loremPool = [];
-    for (let i = 1; i <= 100; i++) {
+    let loremItem = 0;
+    for (let i = 1; i <= 15; i++) {
       loremPool.push(lorem.generateSentences(1));
     }
 
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 3; i++) {
       const cardList = new CardList({
         name: `List ${i}`,
         id: i
       });
       await page.createCardList(cardList);
-      for (let j = 1; j <= 10; j++) {
+      for (let j = 1; j <= 5; j++) {
         const card = new Card({
           cardListId: i
         });
-        card.name = loremPool[10 * i + j];
+        card.name = loremPool[loremItem++];
         await page.createCardInListById(card, i);
         browser.sleep(100);
       }

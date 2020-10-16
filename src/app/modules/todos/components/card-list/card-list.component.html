@@ -23,7 +23,6 @@
 <ul>
   <app-card
     *ngFor="let card of cards;trackBy: cardIdentify" [card]="card"
-    (click)="onCardSelected(card)"
     data-toggle="modal"
     data-target="#cardDetailModal"
   ></app-card>

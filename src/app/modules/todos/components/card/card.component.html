@@ -4,7 +4,7 @@
   [cdkDragData]="card"
   appShadowOnHover
   [@flyInOut]="'in'"
-  (click)="onClick($event)"
+  (click)="onCardSelected()"
 >
   {{card ? card.name : ''}}
 </li>
