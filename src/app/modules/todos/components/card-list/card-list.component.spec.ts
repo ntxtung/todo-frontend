@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CardListComponent } from './card-list.component';
+import {CardListComponent} from './card-list.component';
 import {StoreModule} from '@ngrx/store';
 import {cardReducer} from '../../../../shared/reducers/card.reducer';
 import {cardListReducer} from '../../../../shared/reducers/card-list.reducer';
@@ -13,7 +13,7 @@ describe('CardListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardListComponent, CardComponent ],
+      declarations: [CardListComponent, CardComponent],
       imports: [
         StoreModule.forRoot({
           cardReducer,
@@ -21,7 +21,7 @@ describe('CardListComponent', () => {
         })
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

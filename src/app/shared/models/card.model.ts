@@ -16,10 +16,10 @@ export class Card {
   isChecked: boolean;
 
   constructor(cardObj?: CardInterface) {
-    this.name = cardObj && cardObj.name || '';
-    this.cardListId = cardObj && cardObj.cardListId || -1;
-    this.description = cardObj && cardObj.description || '';
-    this.dueDate = cardObj && cardObj.dueDate || new Date();
-    this.isChecked = cardObj && cardObj.isChecked || false;
+    this.name = cardObj.name ? cardObj.name : '';
+    this.cardListId = cardObj.cardListId ? cardObj.cardListId : -1;
+    this.description = cardObj.description ? cardObj.description : '';
+    this.dueDate = cardObj.dueDate ? cardObj.dueDate : new Date();
+    this.isChecked = cardObj.isChecked ? cardObj.isChecked : false;
   }
 }

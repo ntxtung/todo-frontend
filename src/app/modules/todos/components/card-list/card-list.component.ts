@@ -20,7 +20,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         })
       ),
       transition('void => *', [
-        style({ transform: 'translateX(-120%)' }),
+        style({transform: 'translateX(-120%)'}),
         animate(200)
       ]),
       transition('* => void', [
@@ -45,7 +45,8 @@ export class CardListComponent implements OnInit {
     private cardService: CardService,
     private cardListService: CardListService,
     private store: Store<ReducerState>
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.cardService.getObservableCardsByListId(this.cardList.id)
@@ -86,6 +87,7 @@ export class CardListComponent implements OnInit {
   onTitleEnter(): void {
     this.titleSubmit();
   }
+
   onTitleEscape(): void {
     this.titleEditCancel();
   }
@@ -95,7 +97,7 @@ export class CardListComponent implements OnInit {
     let returnedCardList = null;
     console.log('cardList: ', this.clonedCardList);
     this.cardListService.updateCardList(this.clonedCardList)
-                          .subscribe(cardList => returnedCardList = cardList);
+      .subscribe(cardList => returnedCardList = cardList);
     console.log(returnedCardList);
   }
 
