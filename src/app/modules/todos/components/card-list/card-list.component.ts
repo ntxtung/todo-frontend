@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {CardList} from '../../../../shared/models/card-list.model';
 import {CardService} from '../../../../core/services/card.service';
 import {Card} from '../../../../shared/models/card.model';
@@ -7,32 +7,15 @@ import {selectCard} from '../../../../shared/actions/card.actions';
 import {Store} from '@ngrx/store';
 import {ReducerState} from '../../../../shared/reducers/reducer';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.sass'],
-  animations: [
-    trigger('flyInOut', [
-      state('in',
-        style({
-          transform: 'translateX(0)',
-        })
-      ),
-      transition('void => *', [
-        style({transform: 'translateX(-120%)'}),
-        animate(200)
-      ]),
-      transition('* => void', [
-        animate(200, style({
-          transform: 'translateX(120%)',
-          opacity: 0
-        }))
-      ])
-    ])
-  ]
+  // encapsulation: ViewEncapsulation.None,
 })
-export class CardListComponent implements OnInit {
+export class CardListComponent implements OnInit, OnDestroy {
   @Input() cardList: CardList;
   clonedCardList: CardList;
   cards: Card[];
@@ -40,6 +23,8 @@ export class CardListComponent implements OnInit {
 
   isTitleEdit = false;
   isNewCardTyping = false;
+
+  cardSubscription: Subscription;
 
   constructor(
     private cardService: CardService,
@@ -49,16 +34,15 @@ export class CardListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cardService.getObservableCardsByListId(this.cardList.id)
+    this.cardSubscription = this.cardService.getObservableCardsByListId(this.cardList.id)
       .subscribe(cards => this.cards = cards);
-    // this.store.select('cardReducer')
-    //   .subscribe(cardStore => {
-    //     this.cards = [...cardStore.cards.filter(
-    //       card => card.cardListId === this.cardList.id
-    //     )];
-    //   });
+
     this.clonedCardList = {...this.cardList};
     this.refreshList();
+  }
+
+  ngOnDestroy(): void {
+    this.cardSubscription.unsubscribe();
   }
 
   refreshList(): void {
@@ -66,7 +50,6 @@ export class CardListComponent implements OnInit {
   }
 
   initNewCardObject(): void {
-    // this.newCard = new Card(this.cardList.id);
     this.newCard = new Card({
       cardListId: this.cardList.id
     });
@@ -95,10 +78,10 @@ export class CardListComponent implements OnInit {
   titleSubmit(): void {
     this.isTitleEdit = false;
     let returnedCardList = null;
-    console.log('cardList: ', this.clonedCardList);
+    // console.log('cardList: ', this.clonedCardList);
     this.cardListService.updateCardList(this.clonedCardList)
       .subscribe(cardList => returnedCardList = cardList);
-    console.log(returnedCardList);
+    // console.log(returnedCardList);
   }
 
   titleEditCancel(): void {
@@ -150,5 +133,4 @@ export class CardListComponent implements OnInit {
   cardIdentify(index: number, item: Card): any {
     return item.id;
   }
-
 }

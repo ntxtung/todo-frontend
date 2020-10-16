@@ -21,15 +21,12 @@
   <button class="btn" (click)="onDeleteCardList()">x</button>
 </header>
 <ul>
-  <li
-    app-card
-    appShadowOnHover
+  <app-card
     *ngFor="let card of cards;trackBy: cardIdentify" [card]="card"
     (click)="onCardSelected(card)"
     data-toggle="modal"
     data-target="#cardDetailModal"
-    [@flyInOut]="'in'"
-  ></li>
+  ></app-card>
 </ul>
 
 <footer

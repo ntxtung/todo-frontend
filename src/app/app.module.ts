@@ -17,6 +17,7 @@ import {ShadowOnHoverDirective} from './modules/todos/directives/shadow-on-hover
 import {cardListReducer} from './shared/reducers/card-list.reducer';
 import {localStorageSync} from 'ngrx-store-localstorage';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({keys: ['cardListReducer', 'cardReducer'], rehydrate: true})(reducer);
@@ -42,6 +43,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     }, {metaReducers}),
     FormsModule,
     AppRoutingModule,
+    DragDropModule,
     // Redux DevTool config
     !environment.production ? StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

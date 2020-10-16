@@ -46,14 +46,9 @@ describe('Todos - CardList & Card', () => {
 
   it(`should contains 100 cards / 10 cardLists without crash`, async () => {
     const loremPool = [];
-    await new Promise(resolve => {
-      for (let i = 1; i <= 100; i++) {
-        loremPool.push(lorem.generateSentences(1));
-        if (i === 100) {
-          resolve();
-        }
-      }
-    });
+    for (let i = 1; i <= 100; i++) {
+      loremPool.push(lorem.generateSentences(1));
+    }
 
     for (let i = 1; i <= 10; i++) {
       const cardList = new CardList({
@@ -67,12 +62,13 @@ describe('Todos - CardList & Card', () => {
         });
         card.name = loremPool[10 * i + j];
         await page.createCardInListById(card, i);
+        browser.sleep(100);
       }
     }
   });
 
   afterEach(async () => {
-    browser.sleep(999999);
+    // browser.sleep(999999);
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     expect(logs).not.toContain(jasmine.objectContaining({

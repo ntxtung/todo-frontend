@@ -23,6 +23,7 @@ export class CardDetailComponent implements OnInit {
     private cardService: CardService
   ) {
   }
+
   ngOnInit(): void {
     this.store.select('cardReducer')
       .subscribe(value => {
@@ -40,7 +41,7 @@ export class CardDetailComponent implements OnInit {
   }
 
   onCancel(): void {
-    console.log(this.card);
+    // console.log(this.card);
     this.isTitleEdit = false;
   }
 
@@ -57,7 +58,6 @@ export class CardDetailComponent implements OnInit {
   }
 
   onDelete(): void {
-    console.log('Deleted');
     let returnCard;
     this.cardService.removeCard(this.card)
       .subscribe(card => returnCard = card);

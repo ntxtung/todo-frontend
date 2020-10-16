@@ -1,6 +1,10 @@
-<div
+<li
   class="list-item"
+  cdkDrag
+  [cdkDragData]="card"
+  appShadowOnHover
+  [@flyInOut]="'in'"
   (click)="onClick($event)"
 >
   {{card ? card.name : ''}}
-</div>
+</li>

@@ -4,6 +4,9 @@ import {CardList} from '../../../../shared/models/card-list.model';
 import {ReducerState} from '../../../../shared/reducers/reducer';
 import {Store} from '@ngrx/store';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import {Card} from '../../../../shared/models/card.model';
+import {CardService} from '../../../../core/services/card.service';
 
 @Component({
   selector: 'app-todos-main',
@@ -22,7 +25,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
           transform: 'translateX(70%)',
           opacity: 0
         }),
-        animate(200 )
+        animate(200)
       ]),
       transition('* => void', [
         animate(200, style({
@@ -41,10 +44,8 @@ export class TodosMainComponent implements OnInit {
 
   constructor(
     private cardListService: CardListService,
-    private store: Store<ReducerState>
+    private cardService: CardService,
   ) {
-    // this.store.select('cardListReducer')
-    //   .subscribe(cardListStore => this.cardLists = cardListStore.cardLists);
     this.cardListService.getAllCardLists()
       .subscribe(cardLists => this.cardLists = cardLists);
   }
@@ -82,7 +83,7 @@ export class TodosMainComponent implements OnInit {
         this.isNewCardListTyping = false;
         this.refreshAll();
       } else {
-        console.log('ERROR');
+        console.error('ERROR');
       }
     }
   }
@@ -93,5 +94,14 @@ export class TodosMainComponent implements OnInit {
 
   cardListIdentify(index: number, item: CardList): any {
     return item.id;
+  }
+
+  onCardDropped($event: CdkDragDrop<CardList, Card>): void {
+    const card = new Card($event.item.data);
+    card.cardListId = $event.container.data.id;
+
+    let returnedCard;
+    this.cardService.updateCard(card)
+      .subscribe(subCard => returnedCard = subCard);
   }
 }

@@ -16,6 +16,7 @@ export class Card {
   isChecked: boolean;
 
   constructor(cardObj?: CardInterface) {
+    this.id = cardObj.id ? cardObj.id : -1;
     this.name = cardObj.name ? cardObj.name : '';
     this.cardListId = cardObj.cardListId ? cardObj.cardListId : -1;
     this.description = cardObj.description ? cardObj.description : '';

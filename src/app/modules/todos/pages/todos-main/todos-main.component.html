@@ -1,8 +1,11 @@
 <div class="todo-board">
-  <div class="lists">
+  <div class="lists" cdkDropListGroup>
     <app-card-list
       class="list"
       [@flyInOut]
+      cdkDropList
+      [cdkDropListData]="cardList"
+      (cdkDropListDropped)="onCardDropped($event)"
       *ngFor="let cardList of cardLists; trackBy: cardListIdentify"
       [cardList]="cardList"
     ></app-card-list>
@@ -21,7 +24,8 @@
       <button
         class="button"
         id="create-card-list-button"
-        (click)="onNewCardClicked()">Add new list</button>
+        (click)="onNewCardClicked()">Add new list
+      </button>
     </ng-template>
   </div>
 </div>

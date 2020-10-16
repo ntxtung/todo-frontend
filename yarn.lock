@@ -121,12 +121,21 @@
     ora "5.0.0"
     rxjs "6.6.2"
 
-"@angular/animations@~10.1.4":
-  version "10.1.4"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-10.1.4.tgz#32cff0e0c73898e69c51cbdc1974d136a8ba6061"
-  integrity sha512-l6lSMUljph8orqZVB8Ej6qU1rk0vVCHqJBF7zobGuL47JMuY9+QaEWZ1CIgCishPo9PWq5Wvw/4QqPy9FE/gaw==
+"@angular/animations@^10.1.6":
+  version "10.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-10.1.6.tgz#21fdac5a9d2b98409636466ebd798a36ed6d38d4"
+  integrity sha512-XMTribgDJOb7hxK3e39yjm/Ez7qdP7SHQuei6dT2cDQKHMNflstDM2MWF8sXonzrniVgNKwiRaCx7UTx21azGQ==
   dependencies:
     tslib "^2.0.0"
+
+"@angular/cdk@^10.2.5":
+  version "10.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-10.2.5.tgz#768204ff4db1282297d15f382970f151f87434ec"
+  integrity sha512-SI/YdaxfkttG92A0uGRixyJkfTKHn0GIU+7BCSRq0d31ru3Ugfln+jr+5/xttxWr88CNPTfpGaUt0ZuSqYCzqw==
+  dependencies:
+    tslib "^2.0.0"
+  optionalDependencies:
+    parse5 "^5.0.0"
 
 "@angular/cli@~10.1.4":
   version "10.1.4"
@@ -208,6 +217,13 @@
   version "10.1.4"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-10.1.4.tgz#db81ecd854ebcfd53ee8b4ebc94ae1b4d6e5a3e6"
   integrity sha512-pupOvPZAUZymjOViB25+gUp3/vK5T5XORNMASHubBZAdZ59nhFU3XMHGDl/uRfuy/CiWOOKaB4aS4MqUo+kK2w==
+  dependencies:
+    tslib "^2.0.0"
+
+"@angular/material@^10.2.5":
+  version "10.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-10.2.5.tgz#bdfc0bfdbadbca47db2dfd0170b8a31a3484ffd7"
+  integrity sha512-gYFqpXdLLuRYb9N1jVj9Gig/AlqsEfT/m+RtzHm4mawmHqeQbEV+0C0Qvc6fKRb1060Nkzfz8TDNGu5B+Xzq5A==
   dependencies:
     tslib "^2.0.0"
 
@@ -6439,6 +6455,11 @@ parse5@6.0.1, parse5@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
+
+parse5@^5.0.0:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.1.tgz#f68e4e5ba1852ac2cadc00f4555fff6c2abb6178"
+  integrity sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
 
 parseqs@0.0.5:
   version "0.0.5"

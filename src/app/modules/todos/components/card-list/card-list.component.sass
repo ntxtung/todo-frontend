@@ -11,7 +11,7 @@ $list-bg-color: #e2e4e6
 *:not(.todos-modal)
   background-color: $list-bg-color
   color: #333
-  padding: 0 $gap
+  padding: 0 5px
 
 header
   display: grid
@@ -22,20 +22,25 @@ header
   border-top-left-radius: $list-border-radius
   border-top-right-radius: $list-border-radius
   padding-left: calc(#{$gap} + 5px)
+
   > div
     //width: 100%
     //display: inline-block
     overflow: hidden !important
     text-overflow: ellipsis
+
   > button
     background-color: rgba(0, 0, 0, 0)
     border: rgba(0, 0, 0, 0)
     color: rgba(0, 0, 0, 0)
+
     &:hover
       color: #000000
+
     &:active
-      box-shadow: none!important
+      box-shadow: none !important
       outline: 0
+
   input
     width: 100%
 
@@ -48,27 +53,12 @@ footer
   padding-bottom: $gap
 
 ul
+  display: grid
   list-style: none
   margin: 0
   overflow-x: hidden
-  max-height: calc(100% - #{$list-header-height} - #{$list-footer-height})
+  //max-height: calc(100% - #{$list-header-height} - #{$list-footer-height})
   overflow-y: auto
 
-  li
-    background-color: #fff
-    padding: $gap
-    user-select: none
-    border-radius: $card-border-radius
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1)
-    margin-bottom: $gap
 
-    &:hover
-      transition: all 200ms ease-out
-
-    img
-      display: block
-      width: calc(100% + 2 * #{$gap})
-      margin: -$gap 0 $gap (-$gap)
-      border-top-left-radius: $card-border-radius
-      border-top-right-radius: $card-border-radius
 
