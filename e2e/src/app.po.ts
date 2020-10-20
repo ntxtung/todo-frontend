@@ -23,6 +23,10 @@ export class AppPage {
     await browser.actions().sendKeys(protractor.Key.ENTER).perform();
   }
 
+  async deleteCardById(card: Card): Promise<void> {
+    await element(by.id(`card+${card.id}`)).click();
+  }
+
   getTitleText(): Promise<string> {
     return element(by.css('app-root .content span')).getText() as Promise<string>;
   }
