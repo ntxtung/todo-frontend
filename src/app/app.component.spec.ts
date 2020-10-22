@@ -2,7 +2,7 @@ import {TestBed} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
-import {TodosMainComponent} from './modules/todos/pages/todos-main/todos-main.component';
+import {TodosMainComponent} from './modules/todos/components/todos-main/todos-main.component';
 import {StoreModule} from '@ngrx/store';
 import {cardReducer} from './shared/reducers/card.reducer';
 import {cardListReducer} from './shared/reducers/card-list.reducer';

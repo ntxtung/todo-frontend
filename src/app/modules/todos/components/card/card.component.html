@@ -3,7 +3,8 @@
   cdkDrag
   [cdkDragData]="card"
   appShadowOnHover
-  [@flyInOut]="'in'"
+  data-toggle="modal"
+  data-target="#cardDetailModal"
   (click)="onCardSelected()"
 >
   {{card ? card.name : ''}}

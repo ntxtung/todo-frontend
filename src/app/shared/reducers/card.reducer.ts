@@ -1,4 +1,4 @@
-import {Card, CardInterface} from '../models/card.model';
+import {Card} from '../models/card.model';
 import {selectCard, addNewCard, updateCard, deleteCard} from '../actions/card.actions';
 import {createReducer, on} from '@ngrx/store';
 import {deleteCardList} from '../actions/card-list.actions';
@@ -13,11 +13,10 @@ export const initialState: CardReducerState = {
   cards: []
 };
 
-
 // tslint:disable-next-line:variable-name
 const _cardReducer = createReducer(
   initialState,
-  on(selectCard, (state, payload: CardInterface) => {
+  on(selectCard, (state, payload) => {
     return {...state, selectedCard: payload};
   }),
   on(addNewCard, (state, payload) => {

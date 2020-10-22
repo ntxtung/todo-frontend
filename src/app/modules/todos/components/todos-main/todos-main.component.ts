@@ -1,12 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {CardListService} from '../../../../core/services/card-list.service';
-import {CardList} from '../../../../shared/models/card-list.model';
-import {ReducerState} from '../../../../shared/reducers/reducer';
-import {Store} from '@ngrx/store';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {CdkDragDrop} from '@angular/cdk/drag-drop';
-import {Card} from '../../../../shared/models/card.model';
-import {CardService} from '../../../../core/services/card.service';
+import { Component, OnInit} from '@angular/core';
+import { CardListService } from '../../../../core/services/card-list.service';
+import { CardList } from '../../../../shared/models/card-list.model';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { Card } from '../../../../shared/models/card.model';
 
 @Component({
   selector: 'app-todos-main',
@@ -44,7 +41,6 @@ export class TodosMainComponent implements OnInit {
 
   constructor(
     private cardListService: CardListService,
-    private cardService: CardService,
   ) {
     this.cardListService.getAllCardLists()
       .subscribe(cardLists => this.cardLists = cardLists);
@@ -99,9 +95,14 @@ export class TodosMainComponent implements OnInit {
   onCardDropped($event: CdkDragDrop<CardList, Card>): void {
     const card = new Card($event.item.data);
     card.cardListId = $event.container.data.id;
-
-    let returnedCard;
-    this.cardService.updateCard(card)
-      .subscribe(subCard => returnedCard = subCard);
+    this.cardListService.transferCardItem(
+      $event.previousContainer.data.id,
+      $event.container.data.id,
+      $event.previousIndex,
+      $event.currentIndex
+    );
+    // let returnedCard;
+    // this.cardService.updateCard(card)
+    //   .subscribe(subCard => returnedCard = subCard);
   }
 }

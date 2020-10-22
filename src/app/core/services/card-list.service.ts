@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {CardList} from '../../shared/models/card-list.model';
-import {ReducerState} from '../../shared/reducers/reducer';
-import {Store} from '@ngrx/store';
-import {addNewCardList, deleteCardList, updateCardList} from '../../shared/actions/card-list.actions';
-import {Card} from '../../shared/models/card.model';
+import { Observable, of } from 'rxjs';
+import { CardList } from '../../shared/models/card-list.model';
+import { ReducerState } from '../../shared/reducers/reducer';
+import { Store } from '@ngrx/store';
+import { addNewCardList, deleteCardList, transferCardItem, updateCardList } from '../../shared/actions/card-list.actions';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CardListService {
   cardLists: CardList[];
+
   constructor(
     private store: Store<ReducerState>
   ) {
@@ -33,12 +34,19 @@ export class CardListService {
     this.store.dispatch(addNewCardList(cardList));
     return of(cardList);
   }
+
   updateCardList(cardList: CardList): Observable<CardList> {
     this.store.dispatch(updateCardList(cardList));
     return of(cardList);
   }
+
   removeCardList(cardList: CardList): Observable<CardList> {
     this.store.dispatch(deleteCardList(cardList));
     return of(cardList);
+  }
+
+  transferCardItem(previousListId: number, newListId: number, previousIndex: number, newIndex: number): Observable<boolean> {
+    this.store.dispatch(transferCardItem({previousListId, newListId, previousIndex, newIndex}));
+    return of(true);
   }
 }

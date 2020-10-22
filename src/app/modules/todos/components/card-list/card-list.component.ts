@@ -1,24 +1,18 @@
-import {Component, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CardList} from '../../../../shared/models/card-list.model';
 import {CardService} from '../../../../core/services/card.service';
 import {Card} from '../../../../shared/models/card.model';
 import {CardListService} from '../../../../core/services/card-list.service';
-import {selectCard} from '../../../../shared/actions/card.actions';
-import {Store} from '@ngrx/store';
-import {ReducerState} from '../../../../shared/reducers/reducer';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.sass'],
-  // encapsulation: ViewEncapsulation.None,
 })
 export class CardListComponent implements OnInit, OnDestroy {
   @Input() cardList: CardList;
   clonedCardList: CardList;
-  cards: Card[];
   newCard: Card;
 
   isTitleEdit = false;
@@ -33,8 +27,8 @@ export class CardListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.cardSubscription = this.cardService.getObservableCardsByListId(this.cardList.id)
-      .subscribe(cards => this.cards = cards);
+    // this.cardSubscription = this.cardService.getObservableCardsByListId(this.cardList.id)
+    //   .subscribe(cards => this.cards = cards);
 
     this.clonedCardList = {...this.cardList};
     this.refreshList();
