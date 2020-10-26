@@ -1,17 +1,10 @@
-$gap: 10px;
-
-$list-header-height: 36px;
-$list-footer-height: 36px;
-// Misc
-$list-border-radius: 5px;
-$card-border-radius: 3px;
-// Colors
-$list-bg-color: #e2e4e6;
+@import "../../shared/variables";
 
 *:not(.todos-modal) {
   background-color: $list-bg-color;
   color: #333;
   padding: 0 5px;
+
 }
 
 header {

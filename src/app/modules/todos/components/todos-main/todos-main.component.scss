@@ -1,10 +1,4 @@
-// Layout
-$scrollbar-thickness: 17px;
-$list-width: 300px;
-$gap: 10px;
-// Colors
-$board-bg-color: #ffffff;
-$list-bg-color: #e2e4e6;
+@import "../../shared/variables";
 
 .todo-board {
   height: 100%;
@@ -13,11 +7,10 @@ $list-bg-color: #e2e4e6;
   grid-template-rows: 1fr;
   grid-template-columns: 100%;
   background-color: $board-bg-color;
-  background-image: url("/assets/background.jpg");
-  background-size: auto;
+  background-image: url($background-image);
   background-position: left;
   background-repeat: no-repeat;
-  //background-size: cover;
+  background-size: cover;
   //background-color: $board-bg-color
   //color: #eee
 
