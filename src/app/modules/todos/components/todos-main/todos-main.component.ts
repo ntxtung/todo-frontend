@@ -8,7 +8,7 @@ import { CardListService } from '../../services/card-list.service';
 @Component({
   selector: 'app-todos-main',
   templateUrl: './todos-main.component.html',
-  styleUrls: ['./todos-main.component.sass'],
+  styleUrls: ['./todos-main.component.scss'],
   animations: [
     trigger('flyInOut', [
       state('in',

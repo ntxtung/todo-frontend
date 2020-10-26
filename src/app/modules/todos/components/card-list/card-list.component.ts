@@ -8,7 +8,7 @@ import { CardListService } from '../../services/card-list.service';
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.sass'],
+  styleUrls: ['./card-list.component.scss'],
 })
 export class CardListComponent implements OnInit, OnDestroy {
   @Input() cardList: CardList;

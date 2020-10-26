@@ -11,7 +11,7 @@ export interface CardListReducerState {
 export const initialState: CardListReducerState = {
   cardLists: []
 };
-// TODO: We need refactor here
+// TODO: I need refactor here
 // tslint:disable-next-line:variable-name
 const _cardListReducer = createReducer(
   initialState,

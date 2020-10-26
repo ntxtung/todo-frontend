@@ -8,7 +8,7 @@ import { ReducerState } from '../../reducers/reducer';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.sass'],
+  styleUrls: ['./card.component.scss'],
   animations: [
     trigger('flyInOut', [
       state('in',
