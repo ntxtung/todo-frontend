@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Card } from '../../../../shared/models/card.model';
+import { Card } from '../../models/card.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { selectCard } from '../../../../shared/actions/card.actions';
+import { selectCard } from '../../actions/card.actions';
 import { Store } from '@ngrx/store';
-import { ReducerState } from '../../../../shared/reducers/reducer';
+import { ReducerState } from '../../reducers/reducer';
 
 @Component({
   selector: 'app-card',

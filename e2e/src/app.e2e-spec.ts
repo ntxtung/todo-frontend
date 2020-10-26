@@ -1,8 +1,8 @@
 import {AppPage} from './app.po';
 import {browser, logging} from 'protractor';
 import {environment} from '../../src/environments/environment';
-import {CardList} from '../../src/app/shared/models/card-list.model';
-import {Card} from '../../src/app/shared/models/card.model';
+import {CardList} from '../../src/app/modules/todos/models/card-list.model';
+import {Card} from '../../src/app/modules/todos/models/card.model';
 import {LoremIpsum} from 'lorem-ipsum';
 
 const lorem = new LoremIpsum({

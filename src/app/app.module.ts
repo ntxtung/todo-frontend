@@ -9,12 +9,12 @@ import { TodosMainComponent } from './modules/todos/components/todos-main/todos-
 import { FormsModule } from '@angular/forms';
 import { CardDetailComponent } from './modules/todos/components/card-detail/card-detail.component';
 import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
-import { cardReducer } from './shared/reducers/card.reducer';
+import { cardReducer } from './modules/todos/reducers/card.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../environments/environment';
 import { ShadowOnHoverDirective } from './modules/todos/directives/shadow-on-hover.directive';
-import { cardListReducer } from './shared/reducers/card-list.reducer';
+import { cardListReducer } from './modules/todos/reducers/card-list.reducer';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';

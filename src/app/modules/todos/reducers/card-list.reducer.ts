@@ -64,7 +64,7 @@ const _cardListReducer = createReducer(
     ));
     newCardLists[cardListIndex] = {
       ...newCardLists[cardListIndex],
-      cards: newCardLists[cardListIndex].cards.map(card => card.id === payload.id ? card : new Card(payload))
+      cards: newCardLists[cardListIndex].cards.map(card => card.id === payload.id ? new Card(payload) : card)
     };
     return {
       ...state,
@@ -87,7 +87,7 @@ const _cardListReducer = createReducer(
   }),
   // Complex action
   on(transferCardItem, (state, payload) => {
-    const { previousListId, newListId, previousIndex, newIndex } = payload;
+    const {previousListId, newListId, previousIndex, newIndex} = payload;
     const cardLists: CardList[] = [...state.cardLists];
 
     if (previousListId !== newListId) {

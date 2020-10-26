@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodosMainComponent } from './todos-main.component';
 import { StoreModule } from '@ngrx/store';
-import { cardReducer } from '../../../../shared/reducers/card.reducer';
-import { cardListReducer } from '../../../../shared/reducers/card-list.reducer';
+import { cardReducer } from '../../reducers/card.reducer';
+import { cardListReducer } from '../../reducers/card-list.reducer';
 import { CardDetailComponent } from '../card-detail/card-detail.component';
 
 describe('TodosMainComponent', () => {

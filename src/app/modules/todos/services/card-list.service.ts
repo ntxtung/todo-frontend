@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { CardList } from '../../../shared/models/card-list.model';
+import { CardList } from '../models/card-list.model';
 
 @Injectable()
 export abstract class CardListService {

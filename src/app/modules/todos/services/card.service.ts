@@ -1,4 +1,4 @@
-import { Card } from '../../../shared/models/card.model';
+import { Card } from '../models/card.model';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 @Injectable()

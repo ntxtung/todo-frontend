@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { CardList } from '../../../../shared/models/card-list.model';
+import { CardList } from '../../models/card-list.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { Card } from '../../../../shared/models/card.model';
+import { Card } from '../../models/card.model';
 import { CardListService } from '../../services/card-list.service';
 
 @Component({

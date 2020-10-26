@@ -7,7 +7,7 @@ export interface CardInterface {
   isChecked?: boolean;
 }
 
-export class Card implements CardInterface{
+export class Card implements CardInterface {
   id: number;
   name: string;
   description: string;

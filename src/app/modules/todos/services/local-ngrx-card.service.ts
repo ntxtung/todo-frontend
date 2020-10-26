@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Card } from '../../../shared/models/card.model';
+import { Card } from '../models/card.model';
 import { Store } from '@ngrx/store';
-import { ReducerState } from '../../../shared/reducers/reducer';
-import { addNewCard, updateCard, deleteCard } from '../../../shared/actions/card.actions';
+import { ReducerState } from '../reducers/reducer';
+import { addNewCard, updateCard, deleteCard } from '../actions/card.actions';
 import { CardService } from './card.service';
 
 @Injectable()

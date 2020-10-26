@@ -1,5 +1,5 @@
-import {createAction, props} from '@ngrx/store';
-import {Card} from '../models/card.model';
+import { createAction, props } from '@ngrx/store';
+import { Card } from '../models/card.model';
 
 export const addNewCard = createAction('ADD_NEW_CARD', props<Card>());
 export const selectCard = createAction('SELECT_CARD', props<Card>());

@@ -4,8 +4,8 @@ import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {TodosMainComponent} from './modules/todos/components/todos-main/todos-main.component';
 import {StoreModule} from '@ngrx/store';
-import {cardReducer} from './shared/reducers/card.reducer';
-import {cardListReducer} from './shared/reducers/card-list.reducer';
+import {cardReducer} from './modules/todos/reducers/card.reducer';
+import {cardListReducer} from './modules/todos/reducers/card-list.reducer';
 import {CardDetailComponent} from './modules/todos/components/card-detail/card-detail.component';
 
 describe('AppComponent', () => {

@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {CardList} from '../../../../shared/models/card-list.model';
-import {Card} from '../../../../shared/models/card.model';
+import {CardList} from '../../models/card-list.model';
+import {Card} from '../../models/card.model';
 import {Subscription} from 'rxjs';
 import { CardService } from '../../services/card.service';
 import { CardListService } from '../../services/card-list.service';

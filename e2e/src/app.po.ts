@@ -1,6 +1,6 @@
 import {browser, by, element, protractor} from 'protractor';
-import {CardList} from '../../src/app/shared/models/card-list.model';
-import {Card} from '../../src/app/shared/models/card.model';
+import {CardList} from '../../src/app/modules/todos/models/card-list.model';
+import {Card} from '../../src/app/modules/todos/models/card.model';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {

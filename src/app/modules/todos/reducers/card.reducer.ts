@@ -1,7 +1,7 @@
-import {Card} from '../models/card.model';
-import {selectCard, addNewCard, updateCard, deleteCard} from '../actions/card.actions';
-import {createReducer, on} from '@ngrx/store';
-import {deleteCardList} from '../actions/card-list.actions';
+import { Card } from '../models/card.model';
+import { selectCard, addNewCard, updateCard, deleteCard } from '../actions/card.actions';
+import { createReducer, on } from '@ngrx/store';
+import { deleteCardList } from '../actions/card-list.actions';
 
 export interface CardReducerState {
   selectedCard: Card;
