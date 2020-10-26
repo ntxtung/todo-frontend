@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LocalNgrxCardListService } from './local-ngrx-card-list.service';
-import {StoreModule} from '@ngrx/store';
-import {cardReducer} from '../reducers/card.reducer';
-import {cardListReducer} from '../reducers/card-list.reducer';
+import { StoreModule } from '@ngrx/store';
+import { cardReducer } from '../reducers/card.reducer';
+import { cardListReducer } from '../reducers/card-list.reducer';
 
 describe('CardListService', () => {
   let service: LocalNgrxCardListService;

@@ -7,7 +7,7 @@ import { addNewCardList, deleteCardList, transferCardItem, updateCardList } from
 import { CardListService } from './card-list.service';
 
 @Injectable()
-export class LocalNgrxCardListService implements CardListService{
+export class LocalNgrxCardListService implements CardListService {
   cardLists: CardList[];
 
   constructor(

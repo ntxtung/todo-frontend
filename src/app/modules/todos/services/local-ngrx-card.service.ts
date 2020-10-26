@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Card } from '../models/card.model';
 import { Store } from '@ngrx/store';
 import { ReducerState } from '../reducers/reducer';
-import { addNewCard, updateCard, deleteCard } from '../actions/card.actions';
+import { addNewCard, deleteCard, updateCard } from '../actions/card.actions';
 import { CardService } from './card.service';
 
 @Injectable()

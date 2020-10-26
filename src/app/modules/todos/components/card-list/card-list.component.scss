@@ -24,23 +24,23 @@ header {
     text-overflow: ellipsis;
   }
 
-    > button {
-      background-color: rgba(0, 0, 0, 0);
-      border: rgba(0, 0, 0, 0);
-      color: rgba(0, 0, 0, 0);
-      min-width: auto;
+  > button {
+    background-color: rgba(0, 0, 0, 0);
+    border: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    min-width: auto;
 
-      &:hover {
-        color: #000000;
+    &:hover {
+      color: #000000;
     }
 
-      &:active {
-        box-shadow: none !important;
-        outline: 0;
+    &:active {
+      box-shadow: none !important;
+      outline: 0;
     }
 
-      input {
-        width: 100%;
+    input {
+      width: 100%;
     }
   }
 }

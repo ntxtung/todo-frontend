@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from '../../models/card.model';
 import { Store } from '@ngrx/store';
 import { ReducerState } from '../../reducers/reducer';
-import * as $ from 'jquery';
 import { CardService } from '../../services/card.service';
 
 @Component({

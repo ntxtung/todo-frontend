@@ -1,11 +1,11 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {CardListComponent} from './card-list.component';
-import {StoreModule} from '@ngrx/store';
-import {cardReducer} from '../../reducers/card.reducer';
-import {cardListReducer} from '../../reducers/card-list.reducer';
-import {CardList} from '../../models/card-list.model';
-import {CardComponent} from '../card/card.component';
+import { CardListComponent } from './card-list.component';
+import { StoreModule } from '@ngrx/store';
+import { cardReducer } from '../../reducers/card.reducer';
+import { cardListReducer } from '../../reducers/card-list.reducer';
+import { CardList } from '../../models/card-list.model';
+import { CardComponent } from '../card/card.component';
 
 describe('CardListComponent', () => {
   let component: CardListComponent;

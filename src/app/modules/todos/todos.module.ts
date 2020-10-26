@@ -11,7 +11,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule } from '@angular/forms';
 import { cardListReducer } from './reducers/card-list.reducer';
 import { cardReducer } from './reducers/card.reducer';
-import { BrowserModule, Title } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { CardListService } from './services/card-list.service';
 import { LocalNgrxCardListService } from './services/local-ngrx-card-list.service';
 import { CardService } from './services/card.service';

@@ -11,9 +11,6 @@
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
-  //background-color: $board-bg-color
-  //color: #eee
-
   padding-top: 10px;
 }
 
@@ -24,12 +21,12 @@
   > * {
     flex: 0 0 auto; // 'rigid' lists
     margin-left: $gap;
-}
+  }
 
   &::after {
     content: '';
     flex: 0 0 $gap;
-}
+  }
 }
 
 .list {

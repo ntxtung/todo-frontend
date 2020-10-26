@@ -1,5 +1,5 @@
 import { Card } from '../models/card.model';
-import { selectCard, addNewCard, updateCard, deleteCard } from '../actions/card.actions';
+import { addNewCard, deleteCard, selectCard, updateCard } from '../actions/card.actions';
 import { createReducer, on } from '@ngrx/store';
 import { deleteCardList } from '../actions/card-list.actions';
 
