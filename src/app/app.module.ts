@@ -18,6 +18,10 @@ import { cardListReducer } from './shared/reducers/card-list.reducer';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CardListService } from './modules/todos/services/card-list.service';
+import { LocalNgrxCardListService } from './modules/todos/services/local-ngrx-card-list.service';
+import { CardService } from './modules/todos/services/card.service';
+import { LocalNgrxCardService } from './modules/todos/services/local-ngrx-card.service';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({keys: ['cardListReducer', 'cardReducer'], rehydrate: true})(reducer);
@@ -50,7 +54,15 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     }) : [],
   ],
   providers: [
-    Title
+    Title,
+    {
+      provide: CardListService,
+      useClass: LocalNgrxCardListService
+    },
+    {
+      provide: CardService,
+      useClass: LocalNgrxCardService
+    },
   ],
   bootstrap: [AppComponent]
 })

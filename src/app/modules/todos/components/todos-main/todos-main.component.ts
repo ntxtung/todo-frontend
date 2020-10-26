@@ -1,9 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { CardListService } from '../../../../core/services/card-list.service';
 import { CardList } from '../../../../shared/models/card-list.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Card } from '../../../../shared/models/card.model';
+import { CardListService } from '../../services/card-list.service';
 
 @Component({
   selector: 'app-todos-main',

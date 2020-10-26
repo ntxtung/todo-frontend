@@ -1,9 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CardList} from '../../../../shared/models/card-list.model';
-import {CardService} from '../../../../core/services/card.service';
 import {Card} from '../../../../shared/models/card.model';
-import {CardListService} from '../../../../core/services/card-list.service';
 import {Subscription} from 'rxjs';
+import { CardService } from '../../services/card.service';
+import { CardListService } from '../../services/card-list.service';
 
 @Component({
   selector: 'app-card-list',
@@ -27,9 +27,6 @@ export class CardListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this.cardSubscription = this.cardService.getObservableCardsByListId(this.cardList.id)
-    //   .subscribe(cards => this.cards = cards);
-
     this.clonedCardList = {...this.cardList};
     this.refreshList();
   }

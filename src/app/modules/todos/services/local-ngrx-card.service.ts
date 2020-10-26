@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {Card} from '../../shared/models/card.model';
-import {Store} from '@ngrx/store';
-import {ReducerState} from '../../shared/reducers/reducer';
-import {addNewCard, updateCard, deleteCard} from '../../shared/actions/card.actions';
-import {filter, map, mergeAll} from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { Card } from '../../../shared/models/card.model';
+import { Store } from '@ngrx/store';
+import { ReducerState } from '../../../shared/reducers/reducer';
+import { addNewCard, updateCard, deleteCard } from '../../../shared/actions/card.actions';
+import { CardService } from './card.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class CardService {
+@Injectable()
+export class LocalNgrxCardService implements CardService {
   cards: Card[];
 
   constructor(
@@ -21,20 +19,12 @@ export class CardService {
       });
   }
 
-  getObservableCardsByListId(id: number): Observable<Card[]> {
-    return this.store.select('cardReducer', 'cards')
-      .pipe(
-        map(cards => cards.filter(card => card.cardListId === id))
-      );
-  }
-
   createCard(newCard: Card): Observable<Card> {
-    if (this.cards.length){
+    if (this.cards.length) {
       newCard.id = this.cards[this.cards.length - 1].id + 1;
     } else {
       newCard.id = 1;
     }
-    // this.cards = [...this.cards, newCard];
     this.store.dispatch(addNewCard(newCard));
     return of(newCard);
   }

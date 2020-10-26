@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CardList } from '../../shared/models/card-list.model';
-import { ReducerState } from '../../shared/reducers/reducer';
+import { CardList } from '../../../shared/models/card-list.model';
+import { ReducerState } from '../../../shared/reducers/reducer';
 import { Store } from '@ngrx/store';
-import { addNewCardList, deleteCardList, transferCardItem, updateCardList } from '../../shared/actions/card-list.actions';
+import { addNewCardList, deleteCardList, transferCardItem, updateCardList } from '../../../shared/actions/card-list.actions';
+import { CardListService } from './card-list.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class CardListService {
+@Injectable()
+export class LocalNgrxCardListService implements CardListService{
   cardLists: CardList[];
 
   constructor(

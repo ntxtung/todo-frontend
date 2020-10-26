@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CardListService } from './card-list.service';
+import { LocalNgrxCardService } from './local-ngrx-card.service';
 import {StoreModule} from '@ngrx/store';
-import {cardReducer} from '../../shared/reducers/card.reducer';
-import {cardListReducer} from '../../shared/reducers/card-list.reducer';
+import {cardReducer} from '../../../shared/reducers/card.reducer';
+import {cardListReducer} from '../../../shared/reducers/card-list.reducer';
 
-describe('CardListService', () => {
-  let service: CardListService;
+describe('CardService', () => {
+  let service: LocalNgrxCardService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -17,7 +17,7 @@ describe('CardListService', () => {
         })
       ]
     });
-    service = TestBed.inject(CardListService);
+    service = TestBed.inject(LocalNgrxCardService);
   });
 
   it('should be created', () => {

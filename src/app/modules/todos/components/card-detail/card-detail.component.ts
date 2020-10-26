@@ -1,12 +1,9 @@
-import {Component, Input, OnInit, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
-import {Card} from '../../../../shared/models/card.model';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {cardReducer, CardReducerState} from '../../../../shared/reducers/card.reducer';
-import {selectCard} from '../../../../shared/actions/card.actions';
-import {ReducerState} from '../../../../shared/reducers/reducer';
-import {CardService} from '../../../../core/services/card.service';
+import { Component, OnInit } from '@angular/core';
+import { Card } from '../../../../shared/models/card.model';
+import { Store } from '@ngrx/store';
+import { ReducerState } from '../../../../shared/reducers/reducer';
 import * as $ from 'jquery';
+import { CardService } from '../../services/card.service';
 
 @Component({
   selector: 'app-card-detail',
