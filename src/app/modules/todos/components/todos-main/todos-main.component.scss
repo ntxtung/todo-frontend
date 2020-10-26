@@ -14,10 +14,10 @@ $list-bg-color: #e2e4e6;
   grid-template-columns: 100%;
   background-color: $board-bg-color;
   background-image: url("/assets/background.jpg");
-  //background-size: auto
+  background-size: auto;
   background-position: left;
   background-repeat: no-repeat;
-  background-size: cover;
+  //background-size: cover;
   //background-color: $board-bg-color
   //color: #eee
 
@@ -42,6 +42,7 @@ $list-bg-color: #e2e4e6;
 .list {
   width: $list-width;
   height: calc(100% - #{$gap} - #{$scrollbar-thickness});
+  //height: 100%;
 }
 
 .button {

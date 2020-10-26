@@ -29,27 +29,27 @@ header {
     //display: inline-block
     overflow: hidden !important;
     text-overflow: ellipsis;
-}
-
-  > button {
-    background-color: rgba(0, 0, 0, 0);
-    border: rgba(0, 0, 0, 0);
-    color: rgba(0, 0, 0, 0);
-    min-width: auto;
-
-    &:hover {
-      color: #000000;
   }
 
-    &:active {
-      box-shadow: none !important;
-      outline: 0;
-  }
+    > button {
+      background-color: rgba(0, 0, 0, 0);
+      border: rgba(0, 0, 0, 0);
+      color: rgba(0, 0, 0, 0);
+      min-width: auto;
 
-    input {
-      width: 100%;
+      &:hover {
+        color: #000000;
+    }
+
+      &:active {
+        box-shadow: none !important;
+        outline: 0;
+    }
+
+      input {
+        width: 100%;
+    }
   }
-}
 }
 
 footer {

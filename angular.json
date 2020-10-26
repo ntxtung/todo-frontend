@@ -130,10 +130,5 @@
       }
     }
   },
-  "defaultProject": "todo-frontend",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    }
-  }
+  "defaultProject": "todo-frontend"
 }
