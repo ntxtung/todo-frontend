@@ -18,10 +18,10 @@ const _cardListReducer = createReducer(
   on(addNewCardList, (state, payload) => {
     const cl = new CardList(payload);
     const cardLists = [...state.cardLists];
-    cl.id = cardLists.length ? cardLists[cardLists.length - 1].id + 1 : 1;
+    cl.id = cardLists.length > 0 ? cardLists[cardLists.length - 1].id + 1 : 1;
     return {
       ...state,
-      cardLists: [...state.cardLists, new CardList(payload)]
+      cardLists: [...state.cardLists, cl]
     };
   }),
   on(updateCardList, (state, payload) => {
