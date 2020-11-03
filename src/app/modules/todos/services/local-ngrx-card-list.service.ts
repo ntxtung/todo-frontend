@@ -8,28 +8,16 @@ import { CardListService } from './card-list.service';
 
 @Injectable()
 export class LocalNgrxCardListService implements CardListService {
-  cardLists: CardList[];
 
   constructor(
     private store: Store<ReducerState>
-  ) {
-    this.store.select('cardListReducer')
-      .subscribe(cardListStore => {
-        this.cardLists = cardListStore.cardLists;
-      });
-  }
+  ) { }
 
   getAllCardLists(): Observable<CardList[]> {
     return this.store.select('cardListReducer', 'cardLists');
   }
 
   createNewCardList(cardList: CardList): Observable<CardList> {
-    if (this.cardLists.length) {
-      cardList.id = this.cardLists[this.cardLists.length - 1].id + 1;
-    } else {
-      cardList.id = 1;
-    }
-    this.cardLists = [...this.cardLists, cardList];
     this.store.dispatch(addNewCardList(cardList));
     return of(cardList);
   }

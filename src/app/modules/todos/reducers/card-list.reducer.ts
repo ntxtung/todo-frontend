@@ -16,6 +16,9 @@ export const initialState: CardListReducerState = {
 const _cardListReducer = createReducer(
   initialState,
   on(addNewCardList, (state, payload) => {
+    const cl = new CardList(payload);
+    const cardLists = [...state.cardLists];
+    cl.id = cardLists.length ? cardLists[cardLists.length - 1].id + 1 : 1;
     return {
       ...state,
       cardLists: [...state.cardLists, new CardList(payload)]
