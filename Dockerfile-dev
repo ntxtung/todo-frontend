@@ -1,0 +1,12 @@
+FROM node:12
+
+WORKDIR /home/xt/todos
+
+COPY ./package*.json ./
+COPY ./yarn.lock ./
+
+RUN yarn install
+
+EXPOSE 4200
+
+CMD ["ng", "serve"]
