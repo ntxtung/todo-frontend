@@ -18,6 +18,7 @@ import { CardService } from './services/card.service';
 import { LocalNgrxCardService } from './services/local-ngrx-card.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({keys: ['cardListReducer', 'cardReducer'], rehydrate: true})(reducer);
